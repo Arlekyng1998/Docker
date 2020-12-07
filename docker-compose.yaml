@@ -1,0 +1,67 @@
+version: "3.3"
+
+services: 
+  db:
+    image: mysql:5.7
+    volumes:
+      - ./Mysql:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: grs1907451
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+    networks:
+      lan:
+        ipv4_address: 192.168.20.120
+  
+  wordpress:
+    depends_on:
+      - db
+    image: wordpress:latest
+#    network_mode: host
+    volumes:
+      - ./src/thems:/var/www/html/wp-content/thems
+      - ./src/plugins:/var/www/html/wp-content/plugins
+      - ./src/upload:/var/www/html/wp-content/uploads
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: 192.168.20.120:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress
+    networks:
+      lan:
+        ipv4_address: 192.168.20.170
+  
+  phpmyadmin:
+    depends_on:
+      - db
+    image: phpmyadmin:latest
+    volumes:
+      - ./src/phpmyadmin/sites-available:/etc/apache2/sites-available
+      - ./src/phpmyadmin/sites-enabled:/etc/apache2/sites-enabled
+#    ports: 
+#      - "8080:80"
+    restart: always
+    environment:
+#      - PMA_ARBITRARY=1
+      - PMA_HOST=192.168.20.120
+    networks:
+      lan:
+        ipv4_address: 192.168.20.230
+
+networks:
+  lan:
+    driver: macvlan
+    driver_opts:
+      parent: enp0s3
+    ipam:
+      config:
+        - subnet: "192.168.20.0/24"
+          gateway: "192.168.20.1"
+
+  
+  #centro comercial monterrey piso 9 9915 eliana carcamo 
+  #una hoja de vida actualizada 
+  #lapiz lapisero sacpuntas   
