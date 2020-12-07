@@ -21,6 +21,7 @@ services:
     image: wordpress:latest
 #    network_mode: host
     volumes:
+      - ./src/Vhost:/etc/apache2/sites-available
       - ./src/thems:/var/www/html/wp-content/thems
       - ./src/plugins:/var/www/html/wp-content/plugins
       - ./src/upload:/var/www/html/wp-content/uploads
