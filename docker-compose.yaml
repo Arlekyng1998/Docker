@@ -58,7 +58,7 @@ services:
     volumes:
       - ./src/coredns:/root
     environment:
-      - conf: root/Corefile
+      - conf=root/Corefile
     networks:
       lan:
         ipv4_address: 192.168.20.180
