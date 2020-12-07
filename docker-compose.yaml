@@ -1,6 +1,6 @@
 version: "3.3"
 
-services: 
+services:
   db:
     image: mysql:5.7
     volumes:
@@ -14,7 +14,7 @@ services:
     networks:
       lan:
         ipv4_address: 192.168.20.120
-  
+
   wordpress:
     depends_on:
       - db
@@ -33,7 +33,7 @@ services:
     networks:
       lan:
         ipv4_address: 192.168.20.170
-  
+
   phpmyadmin:
     depends_on:
       - db
@@ -41,7 +41,7 @@ services:
     volumes:
       - ./src/phpmyadmin/sites-available:/etc/apache2/sites-available
       - ./src/phpmyadmin/sites-enabled:/etc/apache2/sites-enabled
-#    ports: 
+#    ports:
 #      - "8080:80"
     restart: always
     environment:
@@ -60,8 +60,3 @@ networks:
       config:
         - subnet: "192.168.20.0/24"
           gateway: "192.168.20.1"
-
-  
-  #centro comercial monterrey piso 9 9915 eliana carcamo 
-  #una hoja de vida actualizada 
-  #lapiz lapisero sacpuntas   
