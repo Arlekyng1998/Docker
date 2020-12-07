@@ -5,7 +5,7 @@
 }
 
 ejemplo.com:53 {
-    file /root/ejemplo.db
+    file /root/tredaingreso.com
     log
     errors
 }
