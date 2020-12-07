@@ -4,7 +4,7 @@
     errors
 }
 
-ejemplo.com:53 {
+tredaingreso.com:53 {
     file /root/tredaingreso.com
     log
     errors
