@@ -1,0 +1,7 @@
+**/*.pem
+**/*.pool
+**/ib_*
+**/ibdata1
+**/auto.cnf
+*/plugins/*
+package-lock.json
