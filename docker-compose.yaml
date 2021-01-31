@@ -58,7 +58,6 @@ services:
     command: -conf coredns-config/Corefile
     volumes:
       - ./coredns:/coredns-config
-    environment:
     networks:
       lan:
         ipv4_address: 192.168.20.180
