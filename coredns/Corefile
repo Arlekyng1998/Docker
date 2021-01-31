@@ -5,7 +5,7 @@
 }
 
 tredaingreso.com:53 {
-    file /root/tredaingreso.com
+    file /coredns-config/tredaingreso.com
     log
     errors
 }

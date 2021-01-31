@@ -52,15 +52,16 @@ services:
       lan:
         ipv4_address: 192.168.20.230
 
-#  coredns:
-#    depends_on:
-#      - db
-#    image: coredns/coredns
-#      - ./src/coredns:/root
-#      - conf=root/Corefile
-#    networks:
-#      lan:
-#        ipv4_address: 192.168.20.180
+  coredns:
+    image: coredns/coredns
+    restart: always
+    command: -conf coredns-config/Corefile
+    volumes:
+      - ./coredns:/coredns-config
+    environment:
+    networks:
+      lan:
+        ipv4_address: 192.168.20.180
 
 networks:
   lan:
