@@ -55,7 +55,7 @@ services:
   coredns:
     image: coredns/coredns
     restart: always
-    command: -conf coredns-config/Corefile
+    command: -conf /coredns-config/Corefile
     ports:
       - 53:53/udp
     volumes:
