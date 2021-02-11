@@ -56,13 +56,13 @@ services:
     image: coredns/coredns
     restart: always
     command: -conf /coredns-config/Corefile
-#    ports:
-#      - 53:53/udp
+    ports:
+      - 53:53/udp
     volumes:
       - ./coredns:/coredns-config
-    networks:
-      lan:
-        ipv4_address: 192.168.20.180
+#    networks:
+#      lan:
+#        ipv4_address: 192.168.20.180
 
 networks:
   lan:
